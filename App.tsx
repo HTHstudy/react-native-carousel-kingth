@@ -21,20 +21,14 @@ const App = () => {
 export default App;
 
 const RainbowSheetPage = ({
-  gap,
   item,
 }: {
-  gap: number;
   item: {
     id: number;
     color: string;
   };
 }) => {
-  return (
-    <View style={{marginHorizontal: gap / 2}}>
-      <View style={{width: 160, height: 200, backgroundColor: item.color}} />
-    </View>
-  );
+  return <View style={{width: 160, height: 200, backgroundColor: item.color}} />;
 };
 
 const RainbowSheet = [

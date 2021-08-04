@@ -4,7 +4,7 @@ import {Dimensions, FlatList, View} from 'react-native';
 const {width} = Dimensions.get('window');
 type CarouselProps = {
   gap: number;
-  RenderItem: ({page, item, gap}: {page: number; item: any; gap: number}) => JSX.Element;
+  RenderItem: ({page, item}: {page: number; item: any}) => JSX.Element;
   pageWidth: number;
   data: any[];
   page: number;
@@ -33,7 +33,11 @@ const Carousel = ({gap, RenderItem, pageWidth, data, page, setPage, contentOffse
         horizontal
         keyExtractor={item => String(item.id)}
         data={data}
-        renderItem={({item}) => <RenderItem page={page} item={item} gap={gap} />}
+        renderItem={({item}) => (
+          <View style={{marginHorizontal: gap / 2}}>
+            <RenderItem page={page} item={item} />
+          </View>
+        )}
         showsHorizontalScrollIndicator={false}
       />
     </View>
